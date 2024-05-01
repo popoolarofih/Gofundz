@@ -67,7 +67,7 @@
     <section class="ftco-section">
       <div class="container">     
           	<div class="table-responsive">
-              <h1>Education</h1>
+              <h1>Health</h1>
               <table class="table table-striped">
               <thead>
                 <tr>
@@ -84,7 +84,6 @@
             </div>
       </div>
     </section>
-		
     <footer class="ftco-footer ftco-section img">
     	<div class="overlay"></div>
       <div class="container">
@@ -157,54 +156,7 @@
     const database = getDatabase(app);
 
     var tbody = document.getElementById('tbody1');
-    var tbody2 =  document.getElementsByClassName('second');
-
-// function AddItemtotable(FirstName, Lastname, Phone, Donation, Mail, donationId) {
-//   let trow = document.createElement("tr");
-//   let td1 = document.createElement('td');
-//   let td2 = document.createElement('td');
-//   let td4 = document.createElement('td');
-//   let td5 = document.createElement('td');
-//   let td6 = document.createElement('td');
-//   let td7 = document.createElement('td');
-//   td1.innerHTML = FirstName;
-//   td2.innerHTML = Lastname;
-//   td4.innerHTML = Phone;
-//   td5.innerHTML = Donation;
-//   td6.innerHTML = Mail;
-//   td7.innerHTML = donationId;  
-//   trow.appendChild(td1);
-//   trow.appendChild(td2);
-//   trow.appendChild(td4);
-//   trow.appendChild(td5);
-//   trow.appendChild(td6);
-//   trow.appendChild(td7);
-//   tbody.appendChild(trow);
-// }
-
-// function addallitemstotable(available) {
-//   tbody.innerHTML = "";
-//   available.forEach(element => {
-//     AddItemtotable(element.FirstName, element.Lastname, element.Phone, element.Donation, element.Mail, element.donationId);
-//   });
-// }
-
-
-// function GetAllDataonce() {
-//   const dbRef = ref(database);
-//   get(child(dbRef, "donatetwo"))
-//     .then((snapshot) => {
-//       var donate = [];
-
-//       snapshot.forEach(childSnapshot => {
-//         donate.push(childSnapshot.val());
-//       });
-//       addallitemstotable(donate);
-//     });
-// }
-// window.onload = GetAllDataonce;
-
-function AddItemtotable2(FirstName, Lastname, Phone, Donation, Mail, donationId) {
+function AddItemtotable(FirstName, Lastname, Phone, Donation, Mail, donationId) {
   let trow = document.createElement("tr");
   let td1 = document.createElement('td');
   let td2 = document.createElement('td');
@@ -227,29 +179,27 @@ function AddItemtotable2(FirstName, Lastname, Phone, Donation, Mail, donationId)
   tbody.appendChild(trow);
 }
 
-function addallitemstotable2(available) {
-  tbody2.innerHTML = "";
+function addallitemstotable(available) {
+  tbody.innerHTML = "";
   available.forEach(element => {
-    AddItemtotable2(element.FirstName, element.Lastname, element.Phone, element.Donation, element.Mail, element.donationId);
+    AddItemtotable(element.FirstName, element.Lastname, element.Phone, element.Donation, element.Mail, element.donationId);
   });
 }
 
 
-function GetAllDataonce2() {
+function GetAllDataonce() {
   const dbRef = ref(database);
-  get(child(dbRef, "donateone"))
+  get(child(dbRef, "donatethree"))
     .then((snapshot) => {
-      var donate2 = [];
+      var donate = [];
 
       snapshot.forEach(childSnapshot => {
-        donate2.push(childSnapshot.val());
+        donate.push(childSnapshot.val());
       });
-      addallitemstotable2(donate2);
+      addallitemstotable(donate);
     });
 }
-
-window.onload = GetAllDataonce2;
-
+window.onload = GetAllDataonce;
   </script>
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
